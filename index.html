@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Shortener</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("D")
+            const redirects = {
+                'hackathon-badge': 'https://www.credly.com/badges/897732d5-ac18-4202-8e30-40fd55642090',
+                '2': 'https://www.second-link.com',
+                // Add more short links here
+            };
+            
+            const path = window.location.pathname.slice(1); // Remove the leading slash
+            console.log(path);
+            const sleep = ms => new Promise(r => setTimeout(r, ms));
+            sleep(10000);
+            if (path && redirects[path]) {
+                window.location.replace(redirects[path]);
+            } else {
+                document.getElementById('message').textContent = 'URL not found or not yet configured.';
+            }
+        });
+    </script>
+</head>
+<body>
+    <p id="message">Redirecting...</p>
+</body>
+</html>
