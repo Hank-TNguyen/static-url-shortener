@@ -1,11 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
     const redirects = {
-        '1': 'https://www.first-link.com',
-        '2': 'https://www.second-link.com',
+        'hackathon-badge': 'https://www.credly.com/badges/897732d5-ac18-4202-8e30-40fd55642090',
         // Add more short links here
     };
 
-    const path = window.location.pathname.slice(1); // Remove the leading slash
+    // Get the part of the path after the /static-url-shortener/
+    const basePath = '/static-url-shortener/';
+    let path = window.location.pathname;
+    
+    // Check if the base path matches the start of the pathname
+    if (path.startsWith(basePath)) {
+        path = path.slice(basePath.length);
+    } else {
+        path = path.slice(1); // Assuming there might be other paths not using the prefix
+    }
+
     if (path && redirects[path]) {
         window.location.replace(redirects[path]);
     } else {
