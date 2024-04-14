@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const redirects = {
         'hackathon-badge': 'https://www.credly.com/badges/897732d5-ac18-4202-8e30-40fd55642090',
+        'uapc19': 'https://webdocs.cs.ualberta.ca/~contest/UAPC/2019/div2/',
         // Add more short links here
     };
 
